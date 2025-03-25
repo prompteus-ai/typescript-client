@@ -1,0 +1,44 @@
+{
+  "name": "@prompteus-ai/neuron-runner",
+  "version": "1.0.1",
+  "description": "TypeScript/JavaScript client library for interacting with the Prompteus Neuron Runner API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "format": "prettier --write \"**/*.ts\"",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "prompteus",
+    "ai",
+    "api",
+    "typescript",
+    "client",
+    "sdk"
+  ],
+  "author": "Prompteus",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prompteus-ai/typescript-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prompteus-ai/typescript-client/issues"
+  },
+  "homepage": "https://github.com/prompteus-ai/typescript-client#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
+    "prettier": "^3.5.2",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.3"
+  }
+}
