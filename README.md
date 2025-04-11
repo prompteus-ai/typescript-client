@@ -17,7 +17,7 @@ For detailed documentation, visit:
 ## Usage
 
 ```typescript
-import { Prompteus } from 'prompteus';
+import { Prompteus } from '@prompteus-ai/neuron-runner';
 
 // Create a client instance
 const client = new Prompteus({
