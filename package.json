@@ -1,6 +1,6 @@
 {
   "name": "@prompteus-ai/neuron-runner",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "TypeScript/JavaScript client library for interacting with the Prompteus Neuron Runner API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,8 +12,7 @@
   "scripts": {
     "build": "tsup",
     "format": "prettier --write \"**/*.ts\"",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm run build"
+    "prepare": "npm run build"
   },
   "keywords": [
     "prompteus",

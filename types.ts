@@ -16,7 +16,9 @@ export interface PrompteusOptions {
 /**
  * Options for calling a neuron
  */
-export interface CallNeuronOptions {
+export type CallNeuronOptions = BaseCallNeuronOptions | CallNeuronWithRevisionOptions;
+
+interface BaseCallNeuronOptions {
   /** Whether to bypass the cache and force a new execution. By default, Prompteus caches responses to:
    * - Reduce costs by avoiding unnecessary AI provider API calls
    * - Improve response times by returning cached results instantly
@@ -34,6 +36,17 @@ export interface CallNeuronOptions {
   headers?: Record<string, string>;
   /** JWT token or API key for authentication. If provided, it will override any previously set JWT/API key */
   jwtOrApiKey?: string;
+  /** Optional revision ID to specify which version of the neuron to execute */
+  revisionId?: never;
+  /** Optional key parameter, required when running a specific neuron revision */
+  key?: never;
+}
+
+interface CallNeuronWithRevisionOptions extends Omit<BaseCallNeuronOptions, 'revisionId' | 'key'> {
+  /** The revision ID of the neuron to execute */
+  revisionId: string;
+  /** Key parameter required when running a specific neuron revision */
+  key: string;
 }
 
 /**

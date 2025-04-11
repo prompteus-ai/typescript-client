@@ -64,6 +64,8 @@ export class Prompteus {
       rawOutput = false,
       headers = {},
       jwtOrApiKey = null,
+      revisionId,
+      key,
     } = options;
 
     if (!organizationSlug) {
@@ -77,8 +79,10 @@ export class Prompteus {
     const queryParams = new URLSearchParams();
     if (bypassCache) queryParams.append('bypassCache', 'true');
     if (rawOutput) queryParams.append('rawOutput', 'true');
+    if (key) queryParams.append('key', key);
 
-    const url = `${this.baseURL}/${organizationSlug}/${neuronSlug}${queryParams.toString() ? `?${queryParams.toString()}` : ''}`;
+    const revisionPath = revisionId ? `/${revisionId}` : '';
+    const url = `${this.baseURL}/${organizationSlug}/${neuronSlug}${revisionPath}${queryParams.toString() ? `?${queryParams.toString()}` : ''}`;
 
     // Use the most specific JWT/API key (options override class-level setting)
     const authToken = jwtOrApiKey || this.jwtOrApiKey;
